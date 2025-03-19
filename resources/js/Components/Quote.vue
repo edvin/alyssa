@@ -28,7 +28,7 @@ const age = computed(() => {
 
 <template>
     <div class="flex place-content-center pt-16 w-full">
-        <section class="bg-slate-50 w-11/12 m:w-1/2 border-l-gray-300 border-l-10 pl-5 py-16 flex place-content-center text-lg">
+        <section class="bg-slate-50 w-11/12 md:w-1/2 border-l-gray-300 border-l-10 pl-5 py-16 flex place-content-center text-lg">
 
             <blockquote>
                 <div>
