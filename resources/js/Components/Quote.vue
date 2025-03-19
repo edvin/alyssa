@@ -28,7 +28,7 @@ const age = computed(() => {
 
 <template>
     <div class="flex place-content-center pt-16 w-full">
-        <section class="bg-slate-50 w-1/2 border-l-gray-300 border-l-10 pl-5 py-16 flex place-content-center text-lg">
+        <section class="bg-slate-50 w-11/12 m:w-1/2 border-l-gray-300 border-l-10 pl-5 py-16 flex place-content-center text-lg">
 
             <blockquote>
                 <div>
@@ -46,7 +46,7 @@ const age = computed(() => {
     </div>
 
     <div class="flex place-content-center py-4">
-        <Link href="/">
+        <Link href="/" preserve-scroll>
             <button
                 class="bg-gradient-to-b from-blue-700 to-sky-900 border-b-blue-950 border-1 hover:from-blue-600 hover:to-sky-800 hover:border-b-blue-900 rounded-md text-white text-sm px-4 py-2"
             >
