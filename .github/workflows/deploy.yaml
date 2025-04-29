@@ -14,6 +14,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 'lastest'
+
+      - name: Install npm packages
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run build
+
       - name: Sync files via rsync
         uses: burnett01/rsync-deployments@7.0.2
         with:
