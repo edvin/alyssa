@@ -1,0 +1,38 @@
+name: Deploy Alyssa to oneHOP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Sync files via rsync
+        uses: burnett01/rsync-deployments@7.0.2
+        with:
+          switches: -avzr --delete --exclude='.env' --exclude='.git'
+          path: .
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+          remote_path: /customers/c/1/5/cxv04xt1s/webroots/r1383465
+
+      - name: Run post‐deploy commands
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host:     ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key:      ${{ secrets.SSH_KEY }}
+          script: |
+            cd /customers/c/1/5/cxv04xt1s/webroots/r1383506
+            composer install --no-dev --optimize-autoloader
+            php artisan migrate --force
+            php artisan optimize
+            cache-purge
