@@ -22,7 +22,7 @@ jobs:
           remote_host: ${{ secrets.SSH_HOST }}
           remote_user: ${{ secrets.SSH_USER }}
           remote_key: ${{ secrets.SSH_KEY }}
-          remote_path: /customers/c/1/5/cxv04xt1s/webroots/r1383465
+          remote_path: /customers/c/1/5/cxv04xt1s/webroots/r1383506
 
       - name: Run post‐deploy commands
         uses: appleboy/ssh-action@v1.2.2
